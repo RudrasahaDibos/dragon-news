@@ -12,7 +12,7 @@ const Login = () => {
             <div className=" bg-base-200 min-h-screen">
             <div className="hero-content ">
                
-                <div className="card bg-base-100 rounded-lg w-2/5 shadow-2xl  p-10 ">
+                <div className="card bg-base-100 rounded-lg md:w-2/5 shadow-2xl  p-10 ">
                    <div className="text-center mb-10 ">
                      <h1 className="text-3xl font-bold">Login Your Account</h1>
                    </div>
@@ -22,13 +22,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input type="email" name="email" placeholder="Enter your email address" className="input input-bordered bg-base-200 " required />
+                            <input type="email" name="email" placeholder="Enter your email address" className="input  bg-base-200 " required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="Enter Your password " className="input input-bordered bg-base-200" required />
+                            <input type="password" name="password" placeholder="Enter Your password " className="input  bg-base-200" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
