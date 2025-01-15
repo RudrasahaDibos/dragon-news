@@ -17,13 +17,14 @@ const Home = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="border-2">
-                     <RightSideNav></RightSideNav>
+                <LeftSideNav></LeftSideNav>
                 </div>
                 <div className="col-span-2 border-2">
                      <h1 className="text-3xl font-bold">Middle of Navbar</h1>
                 </div>
                 <div className="border-2">
-                    <LeftSideNav></LeftSideNav>
+                    
+                    <RightSideNav></RightSideNav>
                 </div>
             </div>
 
