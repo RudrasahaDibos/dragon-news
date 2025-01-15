@@ -1,15 +1,35 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 
 
 const Login = () => {
+  const {SigninUser} =  useContext(AuthContext)
+    const handleLogin =(e)=>{
+        e.preventDefault()
+        const form = new FormData(e.cuurentTarget)
+        const email = form.get('email')
+        const password = form.get('password')
+        console.log(email,password)
+
+        // SignUser
+        SigninUser(email,password)
+        .then(result =>{
+           console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
     return (
-         <div className="">
-            <div className="bg-base-200">
+         <div className="bg-base-200">
+            <div className="">
             <Navbar></Navbar>
             </div>
-            <div className=" bg-base-200 min-h-screen">
+            <div className="  min-h-screen mt-10">
             <div className="hero-content ">
                
                 <div className="card bg-base-100 rounded-lg md:w-2/5 shadow-2xl  p-10 ">
@@ -17,7 +37,7 @@ const Login = () => {
                      <h1 className="text-3xl font-bold">Login Your Account</h1>
                    </div>
                    <hr />
-                    <form className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>

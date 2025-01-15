@@ -1,8 +1,37 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Register = () => {
+    const {createuser} = useContext(AuthContext)      
+  const handleRegister =(e)=>{
+
+
+    e.preventDefault()
+    console.log(e.currentTarget)
+    const form = new FormData(e.currentTarget)
+    const name = form.get('Name')
+    const photo = form.get('image')
+    const email = form.get('email')
+    const password = form.get('password')
+    const checked = form.get('Checked')
+   
+     console.log(name,photo,email,password,checked)
+
+
+    //  create user 
+      createuser(email,password)
+      .then(result =>{
+        console.log(result.user)
+      })
+      .catch(error =>{
+        console.log(error)
+      })
+  }
+
+
     return (
         <div className="bg-base-200">
             <div className="">
@@ -13,10 +42,10 @@ const Register = () => {
 
                     <div className="card bg-base-100 rounded-lg md:w-2/5 shadow-2xl  p-10 ">
                         <div className="text-center mb-10 ">
-                            <h1 className="text-3xl font-bold">Login Your Account</h1>
+                            <h1 className="text-3xl font-bold">Register Your Account</h1>
                         </div>
                         <hr />
-                        <form className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-bold">Name</span>
